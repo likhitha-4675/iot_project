@@ -2,99 +2,17 @@
 <html>
 <head>
     <title>Enter OTP</title>
-    <style>
-        body {
-            background-color: whitesmoke;
-            font-family: Arial, sans-serif;
-            margin: 0;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .box {
-            background-color: white;
-            padding: 30px;
-            width: 340px;
-            border-radius: 10px;
-            text-align: center;
-            box-shadow: 0 0 10px white;
-        }
-
-        .icon-circle {
-            background-color: teal;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            margin: 0 auto 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .icon-circle img {
-            width: 24px;
-            height: 24px;
-        }
-
-        h2 {
-            margin: 10px 0;
-        }
-
-        p {
-            font-size: 14px;
-            color: grey;
-            margin-bottom: 20px;
-        }
-
-        .otp-boxes {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 20px;
-        }
-
-        .otp-boxes input {
-            width: 40px;
-            height: 40px;
-            font-size: 20px;
-            text-align: center;
-            border: 1px solid lightgray;
-            border-radius: 5px;
-        }
-
-        button {
-            width: 100%;
-            padding: 10px;
-            background-color: teal;
-            color: white;
-            font-size: 16px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        .resend {
-            margin-top: 15px;
-            font-size: 13px;
-            color: gray;
-        }
-
-        .resend a {
-            color: teal;
-            text-decoration: none;
-        }
-    </style>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/common.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/user.css') }}">
 </head>
 <body>
     <form method="POST" action="/enter_otp">
         <div class="box">
             <div class="icon-circle">
-                <img src="{{ url_for('static', filename='images/security-checked.jpg') }}" alt="security">
+                <img src="{{ url_for('static', filename='css/images/security-checked.jpg') }}" alt="security">
             </div>
             <h2>Verify Your Identity</h2>
             <p>Enter the 6-digit code sent to<br><b>{{ session.get('email') }}</b></p>
-
             <div class="otp-boxes">
                 <input type="text" name="otp" maxlength="1" required>
                 <input type="text" name="otp" maxlength="1" required>
@@ -103,38 +21,12 @@
                 <input type="text" name="otp" maxlength="1" required>
                 <input type="text" name="otp" maxlength="1" required>
             </div>
-
             <button type="submit">Verify</button>
-
             <div class="resend">
                 Didn't receive the code? <a href="#">Resend</a>
             </div>
         </div>
     </form>
-
-
-
-
-    <script>
-        const inputs = document.querySelectorAll('.otp-boxes input');
-
-        inputs.forEach((input, index) => {
-            input.addEventListener('input', () => {
-                if (input.value.length === 1 && index < inputs.length - 1) {
-                    inputs[index + 1].focus();
-                }
-            });
-
-            input.addEventListener('keydown', (e) => {
-                if (e.key === 'Backspace' && !input.value && index > 0) {
-                    inputs[index - 1].focus();
-                }
-            });
-        });
-
-        window.onload = () => {
-            inputs[0].focus();
-        };
-    </script>
+<script src="{{ url_for('static', filename='js/otp_input.js') }}"></script>
 </body>
 </html>

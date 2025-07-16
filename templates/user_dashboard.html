@@ -2,85 +2,15 @@
 <html>
 <head>
     <title>User Dashboard</title>
-    <style>
-        body {
-            background-color: whitesmoke;
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-        }
-
-        .box {
-            background-color: white;
-            padding: 30px;
-            border-radius: 12px;
-            width: 380px;
-            text-align: center;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .icon-circle {
-            background-color: #1e8e8e;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            margin: 0 auto 20px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .icon-circle img {
-            width: 50px;
-            height: 50px;
-        }
-
-        h2 {
-            font-size: 20px;
-            font-weight: bold;
-            margin: 10px 0 25px;
-            color: #333;
-        }
-
-        .info-boxes {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-top: 10px;
-        }
-
-        .info {
-            background-color:ghostwhite;
-            padding: 12px;
-            border-radius: 8px;
-            box-shadow: 0 0 4px lightgrey;
-            font-size: 14px;
-            flex: 1;
-        }
-
-        .label {
-            color: gray;
-            font-size: 13px;
-        }
-
-        .value {
-            font-weight: bold;
-            color: grey;
-            font-size: 15px;
-            margin-top: 4px;
-        }
-    </style>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/common.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/user.css') }}">
 </head>
 <body>
     <div class="box">
         <div class="icon-circle">
-            <img src="{{ url_for('static', filename='images/success-check.jpg') }}" alt="success">
+            <img src="{{ url_for('static', filename='css/images/success-check.jpg') }}" alt="success">
         </div>
         <h2>Verification Successful!</h2>
-
         <div class="info-boxes">
             <div class="info">
                 <div class="label">Status</div>
@@ -88,7 +18,13 @@
             </div>
             <div class="info">
                 <div class="label">Internet Speed</div>
-                <div class="value">{{ speed }} Mbps</div>
+                <div class="value">
+                    {% if speed == "No Internet" %}
+                      No Internet
+                    {% else %}
+                        {{ speed }} Mbps
+                    {% endif %}
+                </div>
             </div>
         </div>
     </div>

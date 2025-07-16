@@ -1,0 +1,61 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: whitesmoke;
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container,
+.box {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px lightgray;
+    text-align: center;
+    width: 340px;
+}
+
+h2 {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 10px 0 25px;
+    color: #333;
+}
+
+p {
+    font-size: 14px;
+    color: gray;
+    margin-bottom: 20px;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: teal;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.icon,
+.icon-circle {
+    background-color: teal;
+    width: 50px;
+    height: 50px;
+    margin: 0 auto 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon img,
+.icon-circle img {
+    width: 50px;
+    height: 50px;
+}

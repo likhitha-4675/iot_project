@@ -3,90 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <title>User Register</title>
-    <style>
-        body {
-            font-family: 'Poppins', sans-serif;
-            background: lightgrey;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-        }
-
-        .container {
-            background: white;
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0px 0px 10px lightgray;
-            width: 350px;
-            text-align: center;
-        }
-
-        .container h2 {
-            margin-bottom: 10px;
-            font-size: 26px;
-        }
-
-        .container p {
-            margin-bottom: 20px;
-            color: darkgray;
-            font-size: 14px;
-        }
-
-        .container input[type="text"],
-        .container input[type="email"] {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0 15px;
-            border: 1px solid lightgray;
-            border-radius: 6px;
-        }
-
-        .remember {
-            display: flex;
-            align-items: center;
-            margin-bottom: 20px;
-            font-size: 14px;
-        }
-
-        .remember input {
-            margin-right: 8px;
-        }
-
-        .container button {
-            background:darkcyan;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 6px;
-            width: 100%;
-            cursor: pointer;
-            font-size: 16px;
-        }
-
-        .icon {
-            background: darkcyan;
-            width: 50px;
-            height: 50px;
-            margin: 0 auto 20px;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .icon img {
-            width: 24px;
-            height: 24px;
-        }
-    </style>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/common.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/user.css') }}">
 </head>
 <body>
     <form method="POST" action="/user_register">
         <div class="container">
             <div class="icon">
-                <img src="{{ url_for('static', filename='images/security-checked.jpg') }}" alt="security">
+                <img src="{{ url_for('static', filename='css/images/security-checked.jpg') }}" alt="security">
             </div>
             <h2>Welcome</h2>
             <p>Monitor and manage your connected devices with ease</p>
