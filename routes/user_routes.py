@@ -1,7 +1,7 @@
 from flask import Blueprint, request, session, redirect
 from models import user_models
 
-user_router = Blueprint('user_router', __name__)
+user_router = Blueprint('user', __name__)
 
 @user_router.route('/')
 def home():

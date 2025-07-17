@@ -1,32 +1,28 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>User Dashboard</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/common.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/user.css') }}">
+    <title>Device List</title>
 </head>
 <body>
-    <div class="box">
-        <div class="icon-circle">
-            <img src="{{ url_for('static', filename='css/images/success-check.jpg') }}" alt="success">
-        </div>
-        <h2>Verification Successful!</h2>
-        <div class="info-boxes">
-            <div class="info">
-                <div class="label">Status</div>
-                <div class="value">Connected</div>
-            </div>
-            <div class="info">
-                <div class="label">Internet Speed</div>
-                <div class="value">
-                    {% if speed == "No Internet" %}
-                      No Internet
-                    {% else %}
-                        {{ speed }} Mbps
-                    {% endif %}
-                </div>
-            </div>
-        </div>
-    </div>
+    <h2>Connected Devices</h2>
+    <table border="1">
+        <tr>
+            <th>Device Name</th>
+            <th>Device ID</th>
+            <th>Connected Date</th>
+            <th>Data Usage</th>
+            <th>Status</th>
+        </tr>
+        {% for d in devices %}
+        <tr>
+            <td>{{ d[0] }}</td>
+            <td>{{ d[1] }}</td>
+            <td>{{ d[2] }}</td>
+            <td>{{ d[3] }}</td>
+            <td>{{ 'Connected' if d[4] else 'Disconnected' }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <br><a href="/">Add New Device</a>
 </body>
 </html>

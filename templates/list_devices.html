@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Connected Devices</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <h1>Connected Devices List</h1>
+
+    <table border="1" cellpadding="10" cellspacing="0">
+        <thead>
+            <tr>
+                <th>Device Name</th>
+                <th>Device ID</th>
+                <th>Connected Date</th>
+                <th>Data Usage</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for device in devices %}
+            <tr>
+                <td>{{ device.device_name }}</td>
+                <td>{{ device.device_id }}</td>
+                <td>{{ device.connected_date }}</td>
+                <td>{{ device.data_usage }}</td>
+                <td>{{ 'Active' if device.status else 'Inactive' }}</td>
+            </tr>
+            {% else %}
+            <tr><td colspan="5">No devices found.</td></tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <br>
+    <a href="{{ url_for('connected.add_device_route') }}">Add New Device</a>
+</body>
+</html>
